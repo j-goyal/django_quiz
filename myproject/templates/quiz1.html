@@ -1,0 +1,47 @@
+{% extends 'quiz_base.html' %}
+
+{% block title %} Quiz1 {% endblock title %}
+
+{% block quizactive  %} active {% endblock quizactive  %}
+
+{% block quizname %}Animals and Birds Quiz{% endblock quizname %}
+
+{% block action %}/quiz1/{% endblock action %}
+
+
+{% block q1 %}Which is the largest living bird on Earth?{% endblock q1 %}
+{% block q2 %} Which amongst the following is the largest mammal?{% endblock q2 %}
+{% block q3 %} Pashmina shawl is made from the hair of :{% endblock q3 %}
+
+
+{% block q1op1 %} Emu{% endblock q1op1 %}
+{% block q1op2 %} Ostrich{% endblock q1op2 %}
+{% block q1op3 %} Albatross{% endblock q1op3 %}
+{% block q1op4 %} Crane{% endblock q1op4 %}
+
+{% block q2op1 %} Elephant{% endblock q2op1 %}
+{% block q2op2 %} Whale{% endblock q2op2 %}
+{% block q2op3 %} Dinosaur{% endblock q2op3 %}
+{% block q2op4 %} Rhinoceros{% endblock q2op4 %}
+
+{% block q3op1 %} Sheep{% endblock q3op1 %}
+{% block q3op2 %} Goat{% endblock q3op2 %}
+{% block q3op3 %} Rabbit{% endblock q3op3 %}
+{% block q3op4 %} Yak{% endblock q3op4 %}
+
+
+{% block body %}       
+
+<div class="container my-3">
+<img src="https://source.unsplash.com/1600x700/?animals?birds" class="d-block w-100 mx-0">
+</div>
+<!--- 
+
+<div class="container">
+    {% if flag %}       
+        <strong>Your score :</strong> {{score}}/{{total}}
+    {% endif %} 
+</div>
+
+!-->
+{% endblock body %}

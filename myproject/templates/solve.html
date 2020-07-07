@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Solve {% endblock title %}
+
+
+
+{% block body %}
+
+
+<div class="container my-4">
+
+    <form method='post' action="/solve/{{question.id}}">  {% csrf_token %}
+        <h2>{{question.ques}}</h2>
+                <input type="radio" name="ques" value="1"> {{question.option1}}<br>
+                <input type="radio" name="ques" value="2"> {{question.option2}}<br>
+                <input type="radio" name="ques" value="3"> {{question.option3}}<br>
+                <input type="radio" name="ques" value="4"> {{question.option4}}<br>
+            </p>      
+            <input type="submit" class="btn btn-primary" value="Check Answer">
+    </form>
+
+</div>
+
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,127 @@
+<!-- This is a base file for quiz section  -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Quizzly</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% block homeactive %}{% endblock homeactive %}">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item {% block quizactive %}{% endblock quizactive %}">
+                    <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+                <li class="nav-item {% block crquizactive %}{% endblock crquizactive %}">
+                    <a class="nav-link" href="/create_quiz">Create Quiz</a>
+                </li>
+                <li class="nav-item {% block contactactive %}{% endblock contactactive %}">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    
+
+    {% for message in messages %}
+
+    {% if message.message.flag %}
+
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{message.message.title}} <strong>{{ message.message.score }}/{{message.message.total}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+
+    {% else %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endif %}
+    {% endfor %}
+
+    {% block body %} {% endblock body %}
+
+    <div class="container my-2">
+        <h2>{% block quizname %}{% endblock quizname %}</h2>
+
+        <form method="post" action="{% block action %}{% endblock action %}">
+            {% csrf_token %}
+            <br>
+            Check the answer to each multiple-choice question, and click on the "Check Results" button to check your
+            results.
+            <br><br>
+            <P>1. {% block q1 %}{% endblock q1 %}<BR>
+                <input type="radio" name="q1" value="ans11">{% block q1op1 %}{% endblock q1op1 %}<br>
+                <input type="radio" name="q1" value="ans12">{% block q1op2 %}{% endblock q1op2 %}<br>
+                <input type="radio" name="q1" value="ans13">{% block q1op3 %}{% endblock q1op3 %}<br>
+                <input type="radio" name="q1" value="ans14">{% block q1op4 %}{% endblock q1op4 %}<br>
+            </p>
+
+            <P>2. {% block q2 %}{% endblock q2 %}<BR>
+                <input type="radio" name="q2" value="ans21">{% block q2op1 %}{% endblock q2op1 %}<br>
+                <input type="radio" name="q2" value="ans22">{% block q2op2 %}{% endblock q2op2 %}<br>
+                <input type="radio" name="q2" value="ans23">{% block q2op3 %}{% endblock q2op3 %}<br>
+                <input type="radio" name="q2" value="ans24">{% block q2op4 %}{% endblock q2op4 %}<br>
+            </p>
+
+            <P>3. {% block q3 %}{% endblock q3 %}<BR>
+                <input type="radio" name="q3" value="ans31">{% block q3op1 %}{% endblock q3op1 %}<br>
+                <input type="radio" name="q3" value="ans32">{% block q3op2 %}{% endblock q3op2 %}<br>
+                <input type="radio" name="q3" value="ans33">{% block q3op3 %}{% endblock q3op3 %}<br>
+                <input type="radio" name="q3" value="ans34">{% block q3op4 %}{% endblock q3op4 %}<br>
+            </p>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Check Results">
+            <input type="reset" class="btn btn-primary" value="Rest Choices">
+        </form>
+    </div>
+
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

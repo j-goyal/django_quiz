@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} Quiz {% endblock title %}
+
+{% block quizactive %} active {% endblock quizactive %}
+
+
+
+{% block body %}
+
+<div class="container my-2">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/1600x800/?animals?birds" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Animals and Birds</h5>
+          <p class="card-text">Test your knowledge with our animals and birds quiz.</p>
+          <a href="/quiz1" class="btn btn-primary">Take Quiz</a>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/1600x800/?plants?trees?flowers" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Plants and Flowers</h5>
+          <p class="card-text">Test your knowledge with our quiz.</p>
+          <a href="#" class="btn btn-primary">Take Quiz</a>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/1600x800/?cuisines" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cuisines</h5>
+          <p class="card-text">Test your knowledge with our quiz.</p>
+          <a href="#" class="btn btn-primary">Take Quiz</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/1600x800/?astronomy?" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Astronomy</h5>
+          <p class="card-text">Test your knowledge with our quiz.</p>
+          <a href="#" class="btn btn-primary">Take Quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock body %}

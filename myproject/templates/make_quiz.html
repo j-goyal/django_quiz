@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Make Quiz {% endblock title %}
+
+
+{% block body %}
+
+  <div class="container my-4"> 
+    <!-- <p style="text-align:center;background-color:yellow;"><strong>{{title}}</strong> {{score}}{{outof}}{{total}}</p> -->
+    <form method='post' action="/make_quiz/"> {% csrf_token %}
+        {% for question in questions %}
+        <h3>{{question.ques}}</h3>
+        <input type="radio" name="{{question.id}}" value="1"> {{question.option1}}<br>
+        <input type="radio" name="{{question.id}}" value="2"> {{question.option2}}<br>
+        <input type="radio" name="{{question.id}}" value="3"> {{question.option3}}<br>
+        <input type="radio" name="{{question.id}}" value="4"> {{question.option4}}<br>
+        </p>
+        <br>
+        {% endfor %}
+           
+        <input type="submit" class="btn btn-primary" value="Check Score">
+    </form>
+</div>
+
+
+
+
+{% endblock body %}
